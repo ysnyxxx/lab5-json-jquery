@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Book JSON Demo</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+  <h1>Open Console to See Output</h1>
+  <script>
+    $.getJSON("books.json", function(data) {
+      console.log("Title of first book:", data.books[0].title);
+      console.log("Author of second book:", data.books[1].author);
+      
+      let allGenres = [];
+      data.books.forEach(book => {
+        allGenres = allGenres.concat(book.genres);
+      });
+
+      console.log("All genres:", allGenres.join(", "));
+    });
+  </script>
+</body>
+</html>
